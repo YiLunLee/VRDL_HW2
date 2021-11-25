@@ -6,7 +6,14 @@ build the environment via:
 ```
 $ conda env create -f environment.yml
 ```
-
+And install following packages:
+```
+$ pip install opencv-python
+$ pip install yaml
+$ pip install matplotlib
+$ pip install tqdm
+$ pip install scipy
+```
 ## Prepare Dataset
 Split the train data into train_set and validate set
 Put the train image in the train folder: ./vrdl_data/images/train_set
