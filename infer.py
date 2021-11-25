@@ -22,7 +22,7 @@ def load_image(img_path, imgsz):
     return img, (h0, w0), img.shape[:2]  # img, hw_original, hw_resized
 
     
-checkpoint = "submission.pt"
+checkpoint = "./runs/train/vrdl_hw_pretrained7/weights/best_ap.pt"
 # checkpoint = "./yolor_p6.pt"
 device = 'cuda:0'
 imgsz = 640
@@ -63,11 +63,12 @@ iou_thres = 0.65
 start_time = time.time()
 for img in tqdm(test_img_list):
     img = transforms.ToTensor()(img).unsqueeze(0).to(device)
+    import pdb
+    pdb.set_trace()
     inf_out, train_out = model(img)
     output = non_max_suppression(inf_out, conf_thres=conf_thres, iou_thres=iou_thres)
 end_time  = time.time()    
 print("\nInference time per image: ", (end_time - start_time) / len(test_img_list))
-
 jdict = []
 for img_name in tqdm(data_listdir):
     img_path = os.path.join("./test", img_name)
@@ -87,13 +88,12 @@ for img_name in tqdm(data_listdir):
     scale_coords(img.shape[1:], box, shapes[0], shapes[1])
     box = xyxy2xywh(box)
     box[:, :2] -= box[:, 2:] / 2
-
+    
     for p, b in zip(pred.tolist(), box.tolist()):
         jdict.append({'image_id': int(img_name.split('.')[0]),
                       'category_id': int(p[5]),
                       'bbox': [round(x, 3) for x in b],
                       'score': round(p[4], 5)})        
-    
     
 pred_json = "answer.json"
 with open(pred_json, 'w') as f:
