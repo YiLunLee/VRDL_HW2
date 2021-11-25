@@ -14,13 +14,20 @@ Put the validate image in the train folder: ./vrdl_data/images/val
 Put the test image in the train folder: ./vrdl_data/images/test
 Put the train labels txt in the train folder: ./vrdl_data/labels/train_set
 Put the validate labels txt in the train folder: ./vrdl_data/labels/val
-(You can refer to data_preparation.ipynb for details.)
+
+Or you can use data_preparation.ipynb to create the image folder:
+1. pip install h5py
+2. download train.zip and test.zip and unzip to get train/ and test/
+3. put train/ into ./vrdl_data/images, and mkdir ./vrdl_data/labels/train
+4. put test/ into ./vrdl_data/images
+5. Run the data_preparation.ipynb code
 
 The dataset folder should be like:
 ```
 ./vrdl_data
   |---train_set.txt
   |---val.txt
+  |---test.txt
   |---images
         |---train_set
               |---xxxx.png
