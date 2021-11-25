@@ -74,7 +74,7 @@ The dataset folder should be like:
 ## Evaluation code
 Evaluate the model on the test data.
 ```
-  $ python test.py --data data/data.yaml --img 640 --batch 32 --conf 0.001 --iou 0.65 --device 2 --cfg cfg/yolor_p6.cfg --weights submission.pt --name submission_result --save-json --task test --names data.names
+  $ python test.py --data data/data.yaml --img 640 --batch 32 --conf 0.001 --iou 0.65 --device 2 --cfg cfg/yolor_p6.cfg --weights submission.pt --name submission_result --save-json --task test --names data/data.names
 ```
 
 ## Download Pretrained Models
