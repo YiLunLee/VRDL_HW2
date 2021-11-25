@@ -1,6 +1,9 @@
 # VRDL_HW2: SVHN object detection
 This is homework 2 in NYCU Selected Topics in Visual Recognition using Deep Learning.
 
+## Colab notebook link
+https://colab.research.google.com/drive/1dG53tovIx6a8zgYPmFSARz8mhpb5gucL?usp=sharing
+
 ## Installation
 build the environment via:
 ```
